@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://login.salesforce.com/" />
+<title>install_cinnamon</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">install_cinnamon</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeExpression</td>
+	<td>https://login.salesforce.com</td>
+	<td>login_url</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>YOUR SF USERNAME</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>YOUR SF PASSWORD</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>YOUR SF SITE DOMAIN</td>
+	<td>site_domain</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>YOUR SAUCE USERNAME</td>
+	<td>sauce_username</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>YOUR SAUCE ACCESS KEY</td>
+	<td>sauce_key</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>https://login.salesforce.com/packaging/installPackage.apexp?p0=04t30000001I916</td>
+	<td>apexselenese_install_url</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>https://login.salesforce.com/packaging/installPackage.apexp?p0=04td0000000MzCv</td>
+	<td>cinnamon_install_url</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${login_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>${username}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#DevToolsIntegrate_icon &gt; img.setupImage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CustomDomain_font</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=thePage:theForm:setDomainPB:inputSubdomain</td>
+	<td>${site_domain}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=thePage:theForm:setDomainPB:termsCB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=thePage:theForm:setDomainPB:registerDomain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Once you register, you will not be able to modify your Force.com domain name. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Customize_icon &gt; img.setupImage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Collaboration_icon &gt; img.setupImage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CollaborationSettings_font</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_id0:theForm:thePageBlock:btnPageBlock:edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=j_id0:theForm:thePageBlock:collabPrefSection:collabPrefFieldSection:togglePref</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_id0:theForm:thePageBlock:btnPageBlock:save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>100000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${apexselenese_install_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=InstallPackagePage:InstallPackageForm:InstallBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=InstallPackagePage:InstallPackageForm:InstallBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=goNext</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=p201FULL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=goNext</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${cinnamon_install_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=InstallPackagePage:InstallPackageForm:InstallBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simpleDialog0checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=simpleDialog0button0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=goNext</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=p201FULL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=goNext</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=setupSearch</td>
+	<td>remote</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=SecurityRemoteProxy_font</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit')])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>window.document.domain</td>
+	<td>host</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EndpointUrl</td>
+	<td>https://${host}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#DevToolsIntegrate_icon &gt; img.setupImage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CustomDomain_font</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=umps|NA15$00Di0000000hiSL_005i0000001QOW0_02_7eda8497-8984-4bbf-8b90-20a5d95cb5d9|1|</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=thePage:theForm:setDomainPB:termsCB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=thePage:theForm:setDomainPB:registerDomain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=thePage:form:new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=thePage:theForm:thePageBlock:thePageBlockSection:labelSection:MasterLabel</td>
+	<td>cinnamon</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=thePage:theForm:thePageBlock:thePageBlockSection:urlPathPrefixSection:UrlPathPrefix</td>
+	<td>userextensions</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=thePage:theForm:thePageBlock:thePageBlockSection:IndexPageSec:IndexPage</td>
+	<td>CN_user_extensions</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=thePage:theForm:thePageBlock:thePageBlockSection:ActiveSec:Status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=thePage:theForm:thePageBlock:thePageBlockSection:urlmapperclass:mapperClass</td>
+	<td>CN_UserExtensionUrlRewriter</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=thePage:theForm:thePageBlock:thePageBlockButtons:bottom:save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tsidLabel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#DevToolsIntegrate_icon &gt; img.setupImage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CustomSettings_font</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=//a[contains(@title,'Test Cloud Config')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CS_list:cinnamon__TestCloudConfig__c:newBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=CS_Edit:CS_Form:thePageBlock:thePageBlockSection:cinnamon__Sauce_Access_Key__c</td>
+	<td>${sauce_key}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=CS_Edit:CS_Form:thePageBlock:thePageBlockSection:cinnamon__Sauce_Username__c</td>
+	<td>${sauce_username}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CS_Edit:CS_Form:thePageBlock:thePageBlockButtons:save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=CS_Edit:CS_Form:thePageBlock:thePageBlockSection:SetupOwnerId</td>
+	<td>System Administrator</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=CS_Edit:CS_Form:thePageBlock:thePageBlockButtons:save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tsidLabel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cinnamon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=j_id0:j_id24:j_id25:j_id42:j_id43:j_id44:j_id46:j_id47</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>OAUTH Login</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=OAUTH Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=oaapprove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

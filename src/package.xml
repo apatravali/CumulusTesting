@@ -1,8 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>TestPackagesInstalled</members>
-        <name>ApexClass</name>
-    </types>
-    <version>29.0</version>
+  <types>
+    <members>TestPackagesInstalled</members>
+    <members>ShouldAccessBatchDataEntry</members>
+    <members>ShouldAccessBatchDataEntrySettings</members>
+    <members>ShouldCreateNewBatchSetting</members>
+    <members>ShouldCreateNewRecords</members>
+    <members>ShouldDeleteBatchSetting</members>
+    <members>ShouldDeleteExistingRecord</members>
+    <members>ShouldEditBatchSetting</members>
+    <members>ShouldModifyExistingRecord</members>
+    <members>ShouldPushpinMakeFieldsSticky</members>
+    <members>TestUtil</members>
+    <name>ApexClass</name>
+  </types>
+  <version>29.0</version>
 </Package>

@@ -2,3 +2,12 @@
 .settings
 salesforce.schema
 Referenced Packages
+deploy
+.metadata
+.sublime-project
+.sublime-workspace
+.session
+.org_metadata
+.describe
+.apex_file_properties
+*.DS_Store

@@ -3,12 +3,8 @@
   <types>
     <members>TestPackagesInstalled</members>
     <members>ShouldAccessBatchDataEntry</members>
-    <members>ShouldAccessBatchDataEntrySettings</members>
-    <members>ShouldCreateNewBatchSetting</members>
     <members>ShouldCreateNewRecords</members>
-    <members>ShouldDeleteBatchSetting</members>
     <members>ShouldDeleteExistingRecord</members>
-    <members>ShouldEditBatchSetting</members>
     <members>ShouldModifyExistingRecord</members>
     <members>ShouldPushpinMakeFieldsSticky</members>
     <members>TestUtil</members>

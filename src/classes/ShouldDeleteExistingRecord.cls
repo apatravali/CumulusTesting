@@ -1,7 +1,7 @@
 public class ShouldDeleteExistingRecord extends cinnamon.BaseTest {
 
     public override void setup(cinnamon.CN_Context context) {
-        bde__Batch__c batch = TestUtil.createNewBatch();
+        Batch__c batch = TestUtil.createNewBatch();
         context.put('batchId', batch.Id);
 
         Opportunity opp = TestUtil.createNewOppWithBatch(batch.Id);

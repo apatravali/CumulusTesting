@@ -1,7 +1,7 @@
 public class ShouldModifyExistingRecord extends cinnamon.BaseTest {
 
     public override void setup(cinnamon.CN_Context context) {
-        bde__Batch__c batch = TestUtil.createNewBatch();
+        Batch__c batch = TestUtil.createNewBatch();
         context.put('batchId', batch.Id);
 
         Opportunity opp = TestUtil.createNewOppWithBatch(batch.Id);
@@ -21,7 +21,7 @@ public class ShouldModifyExistingRecord extends cinnamon.BaseTest {
         Opportunity opp = [select Id, Name, CloseDate, StageName from Opportunity where Id = :oppId];
 
         s.click(TestUtil.EDIT_LINK);
-        String script = 'var name = selenium.browserbot.getCurrentWindow().document.querySelector(\".sticky-name\");' +
+        String script = 'var name = selenium.browserbot.getCurrentWindow().document.querySelector(\".sticky-Name\");' +
                         'name.value != null;';
         s.waitForCondition(script, '30000');
         System.assertEquals(opp.Name, s.getValue(TestUtil.OPPORTUNITY_NAME_FIELD));
@@ -30,7 +30,7 @@ public class ShouldModifyExistingRecord extends cinnamon.BaseTest {
         s.type(TestUtil.OPPORTUNITY_NAME_FIELD, oppName);
         s.click(TestUtil.SAVE_BUTTON);
 
-        script = 'var oppName = selenium.browserbot.getCurrentWindow().document.querySelector(\".dataRow.first .name\");' +
+        script = 'var oppName = selenium.browserbot.getCurrentWindow().document.querySelector(\".dataRow.first .Name\");' +
                  'oppName.textContent == \"' + oppName + '\";';
         s.waitForCondition(script, '30000');
 

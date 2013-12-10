@@ -50,35 +50,3 @@ Feature: Batch Data Entry
 			And have created a validation rule on "Opportunity"
 			When I fill in all required fields such that its associated validation rule will fail, and click "Save"
 			Then Saving a new record should fail and error message should appear
-
-	Feature: Configuration and Setup
-		Scenario: [DONE] Accessing Configuration & Settings page
-			Given I have navigated to the Batch Data Entry Settings page
-			When I click "Edit Entry Settings" link
-			Then I should be taken to Configuration & Settings page
-			And I click through "Field Mappings", "Advanced Configuration" and "Delete Batches" tabs
-			Then Each tab should render their pages correctly
-
-		Scenario: [DONE] Creating a New Setting
-			Given I have navigated to the Batch Data Entry Settings page
-			When I click "Create New Setting" button
-			Then The "Create New Settings" section appear
-			When I select "Account" from "Object" dropdown
-			Then "Fields for Data Entry" and "Fields for Save List" multi-select picklist appear, showing all available fields
-			When I select all the required fields and click "Save"
-			Then A new Setting appear in "Existing Settings" section
-
-		Scenario: [DONE] Editing a Batch Setting
-			Given I have navigated to the Batch Data Entry Settings page
-			When I click "Edit" link on the existing setting
-			Then "Fields for Data Entry" and "Fields for Save List" multi-select picklist appear, showing all available fields
-			When I select new fields and click "Save"
-			Then The setting was saved successfully and the selected fields should appear
-
-		Scenario: [DONE] Deleting Batch settings
-			Given I have navigated to Delete Batches tab in Batch Data Entry Settings page
-			When I click "delete" link in one of the Batch settings
-			Then The selected Batch settings should be deleted successfully
-			And Deleting a batch should not affect all the records created as part of the batch
-
-

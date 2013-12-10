@@ -1,4 +1,5 @@
 <project name="CumulusTesting" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
+    <taskdef uri="antlib:com.salesforce" resource="com/salesforce/antlib.xml" classpath="lib/ant-salesforce.jar"/>
 
     <target name="deploy">
       <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="src" runAllTests="false" maxPoll="100" />

@@ -21,7 +21,7 @@ public class ShouldModifyExistingRecord extends cinnamon.BaseTest {
         Opportunity opp = [select Id, Name, CloseDate, StageName from Opportunity where Id = :oppId];
 
         s.click(TestUtil.EDIT_LINK);
-        String script = 'var name = selenium.browserbot.getCurrentWindow().document.querySelector(\".sticky-Name\");' +
+        String script = 'var name = selenium.browserbot.getCurrentWindow().document.querySelector(\"input.sticky-Name\");' +
                         'name.value != null;';
         s.waitForCondition(script, '30000');
         System.assertEquals(opp.Name, s.getValue(TestUtil.OPPORTUNITY_NAME_FIELD));

@@ -5,8 +5,8 @@ public class TestUtil {
     public static final String BATCH_DATA_ENTRY_URL = BASE_URL + 'apex/BDE_BatchEntry';
     public static final String NEW_BATCH_BUTTON = 'name=j_id0:j_id8:j_id9:j_id13';
     public static final String BATCH_NAME_FIELD = 'id=j_id0:j_id23:j_id24:j_id26:j_id27:0:j_id28';
-    public static final String OPPORTUNITY_NAME_FIELD = 'css=.sticky-Name';
-    public static final String OPPORTUNITY_NAME_PUSHPIN = 'css=#sticky-Name';
+    public static final String OPPORTUNITY_NAME_FIELD = 'css=input.sticky-Name';
+    public static final String OPPORTUNITY_NAME_PUSHPIN = 'css=label[for=sticky-Name]';
     public static final String CONTACT_LOOKUP_FIELD = 'css=.sticky-npspcontactid';
     public static final String OPPORTUNITY_CLOSE_DATE_FIELD = 'css=.sticky-CloseDate';
     //public static final String OPPORTUNITY_STAGE_FIELD = 'css=.sticky-StageName';
@@ -14,7 +14,7 @@ public class TestUtil {
     public static final String SAVE_BUTTON = 'css=.btnSave';
     public static final String EDIT_LINK = 'css=.editLink';
     public static final String DELETE_LINK = 'css=a.delLink';
-    public static final String DELETE_LINK_FIRST_ROW = 'css=.DataRow.first a.delLink';
+    public static final String DELETE_LINK_FIRST_ROW = 'css=.dataRow.first a.delLink';
 
     // Batch Data Entry Settings
     public static final String BATCH_DATA_ENTRY_SETTINGS_PAGE = BASE_URL + 'apex/BatchEntrySettings';

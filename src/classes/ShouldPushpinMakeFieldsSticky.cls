@@ -19,7 +19,7 @@ public class ShouldPushpinMakeFieldsSticky extends cinnamon.BaseTest {
         s.type(TestUtil.OPPORTUNITY_NAME_FIELD, oppName);
         s.selectOption(TestUtil.OPPORTUNITY_STAGE_FIELD, 'label=Closed Won');
         s.type(TestUtil.OPPORTUNITY_CLOSE_DATE_FIELD, System.today().format());
-        s.check(TestUtil.OPPORTUNITY_NAME_PUSHPIN);
+        s.click(TestUtil.OPPORTUNITY_NAME_PUSHPIN);
 
         s.click(TestUtil.SAVE_BUTTON);
         s.waitForTextPresent('Saved Record List');

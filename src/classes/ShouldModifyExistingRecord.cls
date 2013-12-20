@@ -22,7 +22,7 @@ public class ShouldModifyExistingRecord extends cinnamon.BaseTest {
 
         s.click(TestUtil.EDIT_LINK);
         String script = 'var name = selenium.browserbot.getCurrentWindow().document.querySelector(\"input.sticky-Name\");' +
-                        'name.value != null && name.value != '';';
+                        'name.value != null && name.value != \'\';';
         s.waitForCondition(script, '30000');
         System.assertEquals(opp.Name, s.getValue(TestUtil.OPPORTUNITY_NAME_FIELD));
 

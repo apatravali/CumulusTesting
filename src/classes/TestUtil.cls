@@ -28,11 +28,11 @@ public class TestUtil {
     public static final String SETTINGS_EDIT_LINK= 'css=.editLink';
     public static final String SETTINGS_DELETE_LINK = 'css=.delLink';
 
-    public static Batch__c createNewBatch() {
-        Batch__c batch = new Batch__c();
+    public static npsp__Batch__c createNewBatch() {
+        npsp__Batch__c batch = new npsp__Batch__c();
         batch.name = 'Opportunties' + System.currentTimeMillis();
-        batch.Batch_Status__c = 'In Progress';
-        batch.Object_Name__c = 'opportunity';
+        batch.npsp__Batch_Status__c = 'In Progress';
+        batch.npsp__Object_Name__c = 'opportunity';
         insert batch;
         return batch;
     }
@@ -42,7 +42,7 @@ public class TestUtil {
         opp.Name = 'Donation' + System.currentTimeMillis();
         opp.CloseDate = System.today();
         opp.StageName = 'Closed Won';
-        opp.Batch__c = batchId;
+        opp.npsp__Batch__c = batchId;
         insert opp;
         return opp;
     }

@@ -1,7 +1,7 @@
 public class ShouldCreateNewRecords extends cinnamon.BaseTest {
 
     public override void setup(cinnamon.CN_Context context) {
-        Batch__c batch = TestUtil.createNewBatch();
+        npsp__Batch__c batch = TestUtil.createNewBatch();
         context.put('batchId', batch.Id);
     }
 

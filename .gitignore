@@ -3,6 +3,7 @@
 salesforce.schema
 Referenced Packages
 deploy
+build.properties
 .metadata
 .sublime-project
 .sublime-workspace

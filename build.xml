@@ -1,8 +1,47 @@
 <project name="CumulusTesting" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <property name="sf.package.name" value="CumulusTesting" />
+    
     <taskdef uri="antlib:com.salesforce" resource="com/salesforce/antlib.xml" classpath="lib/ant-salesforce.jar"/>
+
+    <include file="${basedir}/lib/ant-salesforce.xml" />
+
+    <taskdef 
+         resource="net/sf/antcontrib/antlib.xml"
+         classpath="${basedir}/lib/ant-contrib-1.0b2.jar" />
+
+    <!-- If no propertyfile was passed in command line, attempt to load a build.properties if it exists -->
+    <if>
+      <and>
+        <not><isset property="sf:username" /></not>
+        <available file="${basedir}/build.properties" />
+      </and>
+      <then>
+        <loadproperties srcFile="${basedir}/build.properties"/>
+      </then>
+    </if>
+
+
+    <!-- TARGETS -->
 
     <target name="deploy">
       <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="src" runAllTests="false" maxPoll="100" />
+    </target>
+
+
+    <target name="uninstall">
+      <delete dir="uninstallsrc" />
+      <delete dir="uninstall" />
+      <retrievePackaged dir="uninstallsrc" package="${sf.package.name}" />
+      <buildPackagedDestructiveChanges srcdir="uninstallsrc" dir="uninstall" package="${sf.package.name}" />
+      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="uninstall" runAllTests="false" purgeOnDelete="true" maxPoll="200" />
+      <delete dir="uninstallsrc" />
+      <delete dir="uninstall" />
+    </target>
+
+
+    <target name="updatePackageXml">
+      <buildPackageXml package="${sf.package.name}" version="29.0" />
     </target>
 
 </project>

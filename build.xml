@@ -1,10 +1,10 @@
 <project name="CumulusTesting" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
 
-    <property name="sf.package.name" value="CumulusTesting" />
-    
     <taskdef uri="antlib:com.salesforce" resource="com/salesforce/antlib.xml" classpath="lib/ant-salesforce.jar"/>
 
     <include file="${basedir}/lib/ant-salesforce.xml" />
+
+    <loadproperties srcFile="${basedir}/cumulusci.properties"/>
 
     <taskdef 
          resource="net/sf/antcontrib/antlib.xml"
@@ -32,16 +32,32 @@
     <target name="uninstall">
       <delete dir="uninstallsrc" />
       <delete dir="uninstall" />
-      <retrievePackaged dir="uninstallsrc" package="${sf.package.name}" />
-      <buildPackagedDestructiveChanges srcdir="uninstallsrc" dir="uninstall" package="${sf.package.name}" />
+      <retrievePackaged dir="uninstallsrc" package="${cumulusci.package.name}" />
+      <buildPackagedDestructiveChanges srcdir="uninstallsrc" dir="uninstall" package="${cumulusci.package.name}" />
       <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="uninstall" runAllTests="false" purgeOnDelete="true" maxPoll="200" />
       <delete dir="uninstallsrc" />
       <delete dir="uninstall" />
     </target>
 
+    <!-- Developer focused build targets -->
+
+    <!-- retrieveUnpackaged: Retrieves all unpackaged metadata from target org into the unpackaged directory -->
+    <target name="retrieveUnpackaged">
+      <retrieveUnpackaged dir="org_unpackaged" />
+    </target>
+
+    <!-- retrievePackaged: Retrieves all metadata from the package in the target org into the packaged directory -->
+    <target name="retrievePackaged">
+      <retrievePackaged dir="packaged" package="${cumulusci.package.name}" />
+    </target>
+
+    <!-- runAllTests: Uses an empty package manifest to trigger execution of all tests in the target org without deploying any actual code changes -->
+    <target name="runAllTests">
+      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="lib/empty" runAllTests="true" maxPoll="200" />
+    </target>
 
     <target name="updatePackageXml">
-      <buildPackageXml package="${sf.package.name}" version="29.0" />
+      <buildPackageXml package="${cumulusci.package.name}" version="29.0" />
     </target>
 
 </project>

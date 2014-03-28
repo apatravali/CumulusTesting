@@ -44,5 +44,6 @@ public class ShouldModifyExistingRecord extends cinnamon.BaseTest {
         Ids.add((String) context.get('batchId'));
         Ids.add((String) context.get('oppId'));
         Database.delete(Ids);
+        Database.emptyRecycleBin(Ids);
     }
 }
